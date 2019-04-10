@@ -1,0 +1,26 @@
+{
+  "name": "@asymptix/vue-tronlink",
+  "version": "0.1.0",
+  "description": "Vue support for the TronLink browser extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asymptix/vue-tronlink.git"
+  },
+  "keywords": [
+    "vue",
+    "vue2",
+    "tron",
+    "trx",
+    "tronlink"
+  ],
+  "author": "Dmytro Zarezenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Asymptix/vue-tronlink/issues"
+  },
+  "homepage": "https://github.com/Asymptix/vue-tronlink#readme"
+}
