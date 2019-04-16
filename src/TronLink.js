@@ -12,6 +12,10 @@ export default class TronLink {
     return this.tronWeb && this.tronWeb.ready
   }
 
+  isUnlocked() {
+    return this.isLoggedIn()
+  }
+
   getAccountAddress() {
     return this.tronWeb.defaultAddress.base58
   }
