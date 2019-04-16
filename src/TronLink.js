@@ -51,6 +51,11 @@ export default class TronLink {
    */
   convertAddress(address, fromFormat, toFormat) {
     switch (toFormat) {
+      case 'hex':
+        switch (fromFormat) {
+          case 'number':
+            return "0x" + address.toString(16)
+        }
       case 'base58':
         switch (fromFormat) {
           case 'hex':
