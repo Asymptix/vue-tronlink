@@ -1,5 +1,5 @@
 import TronWeb from "tronweb"
-import TronLink  from "../TronLink"
+import TronLink  from "../src/TronLink"
 
 let tronLink = new TronLink(new TronWeb({
   fullHost: 'https://api.trongrid.io',
