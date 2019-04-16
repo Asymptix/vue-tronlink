@@ -50,12 +50,17 @@ export default class TronLink {
    * @param {String} toFormat To format string
    */
   convertAddress(address, fromFormat, toFormat) {
+    if (fromFormat == toFormat) {
+      throw "From and To address formats are equal"
+    }
+
     switch (toFormat) {
       case 'hex':
         switch (fromFormat) {
           case 'number':
             return "0x" + address.toString(16)
         }
+        break
       case 'base58':
         switch (fromFormat) {
           case 'hex':
@@ -65,6 +70,7 @@ export default class TronLink {
 
             return this.tronWeb.address.fromHex(address)
         }
+        break
       case 'number':
         switch (fromFormat) {
           case 'hex':
@@ -73,6 +79,7 @@ export default class TronLink {
             }
             return Number.parseInt(address, 16)
         }
+        break
     }
   }
 
