@@ -65,6 +65,14 @@ export default class TronLink {
 
             return this.tronWeb.address.fromHex(address)
         }
+      case 'number':
+        switch (fromFormat) {
+          case 'hex':
+            if (address._hex) {
+              return Number.parseInt(address._hex, 16)
+            }
+            return Number.parseInt(address, 16)
+        }
     }
   }
 
