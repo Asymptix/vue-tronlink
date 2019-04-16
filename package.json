@@ -4,7 +4,7 @@
   "description": "Vue support for the TronLink browser extension",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,22 @@
   "bugs": {
     "url": "https://github.com/Asymptix/vue-tronlink/issues"
   },
-  "homepage": "https://github.com/Asymptix/vue-tronlink#readme"
+  "homepage": "https://github.com/Asymptix/vue-tronlink#readme",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "tronweb": "^2.4.1"
+  }
 }
