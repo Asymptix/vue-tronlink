@@ -51,7 +51,6 @@ export default class TronLink {
    */
   convertAddress(address, fromFormat, toFormat) {
     //TODO: validate formats
-    //TODO: support formats aliases
 
     if (fromFormat == toFormat) {
       throw "From and To address formats are equal"
@@ -61,10 +60,14 @@ export default class TronLink {
       case 'hex':
         switch (fromFormat) {
           case 'base58':
+          case 'tron':
+          case 'trx':
             return "0x" + this.tronWeb.address.toHex(address)
         }
         break
       case 'base58':
+      case 'tron':
+      case 'trx':
         switch (fromFormat) {
           case 'hex':
             if (address.startsWith("0x")) {
