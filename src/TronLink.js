@@ -1,3 +1,5 @@
+import Address from "./utils/Address"
+
 /**
  * TronLink extension interaction functionality
  */
@@ -68,6 +70,10 @@ export default class TronLink {
       case 'trx':
         switch (fromFormat) {
           case 'hex':
+            if (!Address.isAddress(address)) {
+              throw "Invalid hex address"
+            }
+
             if (address.startsWith("0x")) {
               address = address.substr(2)
             }
