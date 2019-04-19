@@ -39,3 +39,22 @@ for (let fromFormat in supportedAddrConversions) {
     )
   })
 }
+
+// Invalid address format tests
+test(`Invalid input format`, () => {
+  expect(() => tronLink.convertAddress(
+    addresses.contractAddress.hex, 'test', 'hex'
+  )).toThrow()
+})
+
+test(`Invalid output format`, () => {
+  expect(() => tronLink.convertAddress(
+    addresses.contractAddress.hex, 'hex', 'test'
+  )).toThrow()
+})
+
+test(`Invalid both formats`, () => {
+  expect(() => tronLink.convertAddress(
+    addresses.contractAddress.hex, 'test1', 'test2'
+  )).toThrow()
+})
