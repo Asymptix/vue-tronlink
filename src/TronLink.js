@@ -70,7 +70,7 @@ export default class TronLink {
       case 'trx':
         switch (fromFormat) {
           case 'hex':
-            if (!Address.isAddress(address)) {
+            if (!Address.isHexAddress(address)) {
               throw "Invalid hex address"
             }
 
