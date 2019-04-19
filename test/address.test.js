@@ -15,6 +15,8 @@ const addresses = {
   address: {
     hex: "0x415f7e38d7a9a0feb60fd49b4102b1251e75dbc8a9",
     base58: "TJg8QLua4ULPWsiHpAa8KLXDaBeTd87M3R",
+    tron: "TJg8QLua4ULPWsiHpAa8KLXDaBeTd87M3R",
+    trx: "TJg8QLua4ULPWsiHpAa8KLXDaBeTd87M3R",
   }
 }
 
@@ -36,11 +38,13 @@ for (let format in supportedAddrConversions) {
 for (let fromFormat in supportedAddrConversions) {
   for (let toFormat of supportedAddrConversions[fromFormat])
   test(`Conversion: ${fromFormat} --> ${toFormat}`, () => {
-    expect(tronLink.convertAddress(
-      addresses.contract[fromFormat], fromFormat, toFormat
-    )).toBe(
-      addresses.contract[toFormat]
-    )
+    for (let key in addresses) {
+      expect(tronLink.convertAddress(
+        addresses[key][fromFormat], fromFormat, toFormat
+      )).toBe(
+        addresses[key][toFormat]
+      )
+    }
   })
 }
 
