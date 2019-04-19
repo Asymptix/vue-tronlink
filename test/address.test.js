@@ -17,11 +17,13 @@ const supportedAddrConversions = {
   base58: ['hex'],
 }
 
-test('Useless address conversion', () => {
-  expect(() => tronLink.convertAddress(
-    addresses.contractAddress.hex, 'hex', 'hex'
-  )).toThrow()
-})
+for (let format in supportedAddrConversions) {
+  test(`Useless conversion: ${format} --> ${format}`, () => {
+    expect(() => tronLink.convertAddress(
+      addresses.contractAddress.hex, format, format
+    )).toThrow()
+  })
+}
 
 for (let fromFormat in supportedAddrConversions) {
   for (let toFormat of supportedAddrConversions[fromFormat])
