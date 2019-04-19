@@ -9,12 +9,16 @@ const addresses = {
   contractAddress: {
     hex: "0x41f01c85e1529abf2793a031a3a40283bbf3479276",
     base58: "TXroLufzC4WcXWmfTH3awYGJxtx7Hg6YK8",
+    tron: "TXroLufzC4WcXWmfTH3awYGJxtx7Hg6YK8",
+    trx: "TXroLufzC4WcXWmfTH3awYGJxtx7Hg6YK8",
   }
 }
 
 const supportedAddrConversions = {
-  hex: ['base58'],
+  hex: ['base58', 'tron', 'trx'],
   base58: ['hex'],
+  tron: ['hex'],
+  trx: ['hex'],
 }
 
 for (let format in supportedAddrConversions) {
