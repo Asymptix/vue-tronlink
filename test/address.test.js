@@ -66,3 +66,12 @@ test(`Invalid both formats`, () => {
     addresses.contract.hex, 'test1', 'test2'
   )).toThrow()
 })
+
+// Invalid address value tests
+for (let addr of ["0x1234567890abcdef", "Test", "Hello World!", "", null, 0, 0x0, -1, new Object]) {
+  test(`Invalid input HEX addresses: ${addr}`, () => {
+    expect(() => tronLink.convertAddress(
+      addr, 'hex', 'base58'
+    )).toThrow()
+  })
+}
