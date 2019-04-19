@@ -50,8 +50,6 @@ export default class TronLink {
    * @param {String} toFormat To format string
    */
   convertAddress(address, fromFormat, toFormat) {
-    //TODO: validate formats
-
     if (fromFormat == toFormat) {
       throw "From and To address formats are equal"
     }
@@ -78,6 +76,8 @@ export default class TronLink {
         }
         break
     }
+
+    throw "Invalid address formats"
   }
 
 }
