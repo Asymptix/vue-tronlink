@@ -60,8 +60,6 @@ export default class TronLink {
     switch (toFormat) {
       case 'hex':
         switch (fromFormat) {
-          case 'number':
-            return "0x" + address.toString(16)
           case 'base58':
             return "0x" + this.tronWeb.address.toHex(address)
         }
@@ -74,15 +72,6 @@ export default class TronLink {
             }
 
             return this.tronWeb.address.fromHex(address)
-        }
-        break
-      case 'number':
-        switch (fromFormat) {
-          case 'hex':
-            if (address._hex) {
-              return Number.parseInt(address._hex, 16)
-            }
-            return Number.parseInt(address, 16)
         }
         break
     }

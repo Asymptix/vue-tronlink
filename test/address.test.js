@@ -9,12 +9,11 @@ const addresses = {
   contractAddress: {
     hex: "0x41f01c85e1529abf2793a031a3a40283bbf3479276",
     base58: "TXroLufzC4WcXWmfTH3awYGJxtx7Hg6YK8",
-    number: 96368400294979331694273787997127203450741234045558,
   }
 }
 
 const supportedAddrConversions = {
-  hex: ['base58', 'number'],
+  hex: ['base58'],
   base58: ['hex'],
 }
 
