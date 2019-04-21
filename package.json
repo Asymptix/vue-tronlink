@@ -4,7 +4,7 @@
   "description": "Vue support for the TronLink browser extension",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --ci"
   },
   "repository": {
     "type": "git",
@@ -31,13 +31,17 @@
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
-    }
+    },
+    "reporters": [
+      "jest-junit"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
+    "jest-junit": "^6.3.0",
     "tronweb": "^2.4.1"
   }
 }
