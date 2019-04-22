@@ -20,18 +20,18 @@ jobs: # a collection of steps
             - ./node_modules
       - run:
           name: "Run linting"
-          command: npm run lint -- --format junit -o reports/junit/js-lint-results.xml
+          command: npm run lint -- --format junit -o reports/eslint/results.xml
       - run: # run tests
           name: 'Run unit-tests'
           environment:
-            JEST_JUNIT_OUTPUT: reports/junit/js-test-results.xml
+            JEST_JUNIT_OUTPUT: reports/jest/results.xml
           command: npm run test -- --ci
       #- run: # run coverage report
       #    name: code-coverage
       #    command: './node_modules/.bin/nyc report --reporter=text-lcov'
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
-          path: reports/junit
+          path: reports
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: reports/junit
+          path: reports
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
