@@ -24,12 +24,12 @@ export default {
     getURL() {
       let baseUrl = "https://"
       switch (this.network) {
-        case 'mainnet':
+        case "mainnet":
           baseUrl+= "tronscan.org/#"
-          break;
-        case 'shasta':
+          break
+        case "shasta":
           baseUrl+= "shasta.tronscan.org/#"
-          break;
+          break
       }
 
       return [baseUrl, this.type, this.value].join("/")

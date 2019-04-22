@@ -20,7 +20,7 @@ const Address = {
       return true
     } else {
       // Otherwise check each case
-      return isChecksumAddress(address)
+      return this.isChecksumHexAddress(address)
     }
   },
 
@@ -33,7 +33,7 @@ const Address = {
    */
   isChecksumHexAddress(address) {
     // Check each case
-    address = address.replace('0x', '')
+    address = address.replace("0x", "")
     var addressHash = sha3(address.toLowerCase())
     for (var i = 0; i < 40; i++) {
       // the nth letter should be uppercase if the nth digit of casemap is 1

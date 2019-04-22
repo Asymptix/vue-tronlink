@@ -2,7 +2,7 @@ import TronWeb from "tronweb"
 import TronLink  from "../src/TronLink"
 
 let tronLink = new TronLink(new TronWeb({
-  fullHost: 'https://api.trongrid.io',
+  fullHost: "https://api.trongrid.io",
 }))
 
 const addresses = {
@@ -21,10 +21,10 @@ const addresses = {
 }
 
 const supportedAddrConversions = {
-  hex: ['base58', 'tron', 'trx'],
-  base58: ['hex'],
-  tron: ['hex'],
-  trx: ['hex'],
+  hex: ["base58", "tron", "trx"],
+  base58: ["hex"],
+  tron: ["hex"],
+  trx: ["hex"],
 }
 
 for (let format in supportedAddrConversions) {
@@ -37,33 +37,33 @@ for (let format in supportedAddrConversions) {
 
 for (let fromFormat in supportedAddrConversions) {
   for (let toFormat of supportedAddrConversions[fromFormat])
-  test(`Conversion: ${fromFormat} --> ${toFormat}`, () => {
-    for (let key in addresses) {
-      expect(tronLink.convertAddress(
-        addresses[key][fromFormat], fromFormat, toFormat
-      )).toBe(
-        addresses[key][toFormat]
-      )
-    }
-  })
+    test(`Conversion: ${fromFormat} --> ${toFormat}`, () => {
+      for (let key in addresses) {
+        expect(tronLink.convertAddress(
+          addresses[key][fromFormat], fromFormat, toFormat
+        )).toBe(
+          addresses[key][toFormat]
+        )
+      }
+    })
 }
 
 // Invalid address format tests
-test(`Invalid input format`, () => {
+test("Invalid input format", () => {
   expect(() => tronLink.convertAddress(
-    addresses.contract.hex, 'test', 'hex'
+    addresses.contract.hex, "test", "hex"
   )).toThrow()
 })
 
-test(`Invalid output format`, () => {
+test("Invalid output format", () => {
   expect(() => tronLink.convertAddress(
-    addresses.contract.hex, 'hex', 'test'
+    addresses.contract.hex, "hex", "test"
   )).toThrow()
 })
 
-test(`Invalid both formats`, () => {
+test("Invalid both formats", () => {
   expect(() => tronLink.convertAddress(
-    addresses.contract.hex, 'test1', 'test2'
+    addresses.contract.hex, "test1", "test2"
   )).toThrow()
 })
 
@@ -71,7 +71,7 @@ test(`Invalid both formats`, () => {
 for (let addr of ["0x1234567890abcdef", "Test", "Hello World!", "", null, 0, 0x0, -1, new Object]) {
   test(`Invalid input HEX addresses: ${addr}`, () => {
     expect(() => tronLink.convertAddress(
-      addr, 'hex', 'base58'
+      addr, "hex", "base58"
     )).toThrow()
   })
 }

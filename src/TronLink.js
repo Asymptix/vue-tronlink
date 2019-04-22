@@ -57,19 +57,19 @@ export default class TronLink {
     }
 
     switch (toFormat) {
-      case 'hex':
+      case "hex":
         switch (fromFormat) {
-          case 'base58':
-          case 'tron':
-          case 'trx':
+          case "base58":
+          case "tron":
+          case "trx":
             return "0x" + this.tronWeb.address.toHex(address)
         }
         break
-      case 'base58':
-      case 'tron':
-      case 'trx':
+      case "base58":
+      case "tron":
+      case "trx":
         switch (fromFormat) {
-          case 'hex':
+          case "hex":
             if (!Address.isHexAddress(address)) {
               throw "Invalid hex address"
             }

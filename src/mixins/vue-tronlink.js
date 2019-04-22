@@ -9,7 +9,7 @@ export default {
   },
   methods: {
     checkTronLink() {
-      if (window && window.hasOwnProperty('tronWeb')) {
+      if (window && window.hasOwnProperty("tronWeb")) {
         this.tronWeb = window.tronWeb
         this.tronLink = new TronLink(this.tronWeb)
         console.log("TronLink is OK!")
