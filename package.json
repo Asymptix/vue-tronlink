@@ -4,7 +4,8 @@
   "description": "Vue support for the TronLink browser extension",
   "main": "index.js",
   "scripts": {
-    "test": "jest --ci"
+    "test": "jest --ci",
+    "lint": "eslint './**/*.{js,vue}'"
   },
   "repository": {
     "type": "git",
