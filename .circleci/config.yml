@@ -25,13 +25,15 @@ jobs: # a collection of steps
           name: 'Run unit-tests'
           environment:
             JEST_JUNIT_OUTPUT: reports/jest/results.xml
-          command: npm run test -- --ci
-      #- run: # run coverage report
-      #    name: code-coverage
-      #    command: './node_modules/.bin/nyc report --reporter=text-lcov'
+          command: npm run test -- --ci --collectCoverage=true
+      - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: reports
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: reports
-      - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: reports
+          prefix: tests
+      - store_artifacts: # special step to save test results as as artifact
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
+          path: coverage
+          prefix: coverage
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
