@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint './**/*.{js,vue}'"
+    "lint": "eslint './**/*.{js,vue}'",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-jest": "^24.7.1",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
     "jest": "^24.7.1",
