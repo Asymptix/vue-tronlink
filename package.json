@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint './**/*.{js,vue}'",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
